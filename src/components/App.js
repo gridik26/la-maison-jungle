@@ -1,13 +1,15 @@
 import '../App.css';
-import './banner';
-import Cart from './cart';
-import Banner from './banner';
+import './Banner';
+import Cart from './Cart';
+import Banner from './Banner';
+import ShoppingList from './ShoppingList';
 
 function App() {
   return (
     <div>
       <Banner/>
       <Cart/>
+      <ShoppingList/>
     </div>
   );
 }
