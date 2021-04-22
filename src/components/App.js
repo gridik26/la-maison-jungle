@@ -3,6 +3,7 @@ import './Banner';
 import Cart from './Cart';
 import Banner from './Banner';
 import ShoppingList from './ShoppingList';
+import Footer from './Footer';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Banner/>
       <Cart/>
       <ShoppingList/>
+      <Footer/>
     </div>
   );
 }
