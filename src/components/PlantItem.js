@@ -1,11 +1,11 @@
 import CareScale from './CareScale';
 import '../styles/plantItem.css';
 
-function PlantItem({ id, cover, name, water, light }){
+function PlantItem({ id, cover, name, water, light}){
 
 return(
 <div>
-    <li key={id} className='lmj-plant-item'>
+    <li key={id} >
 			<img className='lmj-plant-item-cover' src={cover} alt={`${name} cover`} />
 			{name}
 			<div>
