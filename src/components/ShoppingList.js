@@ -16,17 +16,23 @@ function ShoppingList({cart, updateCart}) {
     const [categorySelected, setCategory] = useState('')
 
     function addToCart(name, price) {
-		const currentPlantSaved = cart.find((plant) => plant.name === name)
+        const cartjson = localStorage.getItem('cart');
+        const cartFromLocalStorage = JSON.parse(cartjson);
+		const currentPlantSaved = cartFromLocalStorage.find((plant) => plant.name === name)
 		if (currentPlantSaved) {
-			const cartFilteredCurrentPlant = cart.filter(
+			const cartFilteredCurrentPlant = cartFromLocalStorage.filter(
 				(plant) => plant.name !== name
 			)
-			updateCart([
+			const newCart = [
 				...cartFilteredCurrentPlant,
 				{ name, price, amount: currentPlantSaved.amount + 1 }
-			])
+			];
+            localStorage.setItem('cart', newCart);
+            updateCart(newCart);
 		} else {
-			updateCart([...cart, { name, price, amount: 1 }])
+			const newCart =[...cartFromLocalStorage, { name, price, amount: 1 }];
+            localStorage.setItem('cart', newCart);
+            updateCart(newCart);
 		}
 	}
 
@@ -42,7 +48,7 @@ function ShoppingList({cart, updateCart}) {
                 {plantList.map((plant) => 
                 !categorySelected || categorySelected === plant.category ?
                 (
-                    <div className='lmj-plant-item'> 
+                    <div className='lmj-plant-item' key={plant.id}> 
                          <PlantItem 
                             id={plant.id}
                             cover={plant.cover}

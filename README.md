@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# La maison Jungle
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project has been developped to implement a cart with React JS.
 
 ## Available Scripts
 
